@@ -12,9 +12,9 @@
     <li>
       <a href="salespeople/index.php">Salespeople</a>
     </li>
-    <li>
+    <!-- <li>
       <a href="states/index.php">States &amp; Territories</a>
-    </li>
+    </li> -->
     <li>
       <a href="countries/index.php">Countries</a>
     </li>

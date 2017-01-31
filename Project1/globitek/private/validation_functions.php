@@ -24,66 +24,18 @@
   // has_valid_email_format('test@test.com')
   function has_valid_email_format($value) {
     // TODO
-    $not_allowed = "!#$%^&*()+=/\{}[]|:;?<>~-,'";
-    $result = false;
-
-    for($i = 0; $i < strlen($value); $i++)
-    {
-      if($value[$i] == '@')
-      {
-        if($result == true)
-        {
-          $result = false; // Returns false if there are two '@'
-          break;
-        }
-        else
-          $result = true; // Result is set to true
-      }
-
-      for($j = 0; $j < strlen($not_allowed); $j++)
-      {
-        if($value[$i] == $not_allowed[$j])
-        {
-          $result = false; // Changes back to false if a non-valid character is encountered
-          break;
-        }
-      }
-    }
-      
-    return $result;
+    if(!preg_match('/\A[A-Za-z0-9\_\@\.]+\Z/', $value))
+      return false;
+    
+    return (strpos($value, '@') !== false);
   }
 
   function has_valid_name_format($value) {
-    $not_allowed = "!@#$%^&*()_+=/\{}[]|:;?<>~";
-
-    for($i = 0; $i < strlen($value); $i++)
-    {
-      for($j = 0; $j < strlen($not_allowed); $j++)
-      {
-        if($value[$i] == $not_allowed[$j])
-          return false;
-      }
-    }
-    return true;
-
-    /*if(preg_match('/\A[A-Za-z\s\-,\.\']+\Z/', $value))
-      return true;
-    else
-      return false;*/
+    return preg_match('/\A[A-Za-z\s\-,\.\']+\Z/', $value);
   }
 
   function has_valid_username_format($value) {
-    $not_allowed = "!@#$%^&*()+=/\{}[]|:;?<>~-,'";
-
-    for($i = 0; $i < strlen($value); $i++)
-    {
-      for($j = 0; $j < strlen($not_allowed); $j++)
-      {
-        if($value[$i] == $not_allowed[$j])
-          return false;
-      }
-    }
-    return true;
+    return preg_match('/\A[A-Za-z0-9\_]+\Z/', $value);
   }
 
   function is_unique_username($value) {

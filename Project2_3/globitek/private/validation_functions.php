@@ -23,46 +23,29 @@
   function has_valid_email_format($value) {
     // Function can be improved later to check for
     // more than just '@'.
-    if(preg_match('/\A[A-Za-z0-9\@\._-]+\Z/', $value))
-      return true;
-    else
-      return false;
 
-    //return strpos($value, '@') !== false;
+    if(!preg_match('/\A[A-Za-z0-9\_\@\.]+\Z/', $value))
+      return false;
+    
+    return (strpos($value, '@') !== false);
   }
 
   function has_valid_username_format($value) {
-
-    if(preg_match('/\A[A-Za-z0-9\_\.]+\Z/', $value))
-        return true;
-    else
-        return false;
+    return preg_match('/\A[A-Za-z0-9\_]+\Z/', $value);
   }
 
   function has_valid_phone_format($value) {
-
-    if(preg_match('/\A[0-9\s\()\-]+\Z/', $value))
-        return true;
-    else
-        return false;
+    return preg_match('/\A[0-9\s\()\-]+\Z/', $value);
   }
   
   // Custom Validations
 
   function has_valid_name_format($value) {
-
-    if(preg_match('/\A[A-Za-z\-\s]+\Z/', $value))
-        return true;
-    else
-        return false;
+    return preg_match('/\A[A-Za-z\s\-,\.\']+\Z/', $value);
   }
 
   function is_alphabetic($value) {
-
-    if(preg_match('/\A[A-Z]+\Z/', $value))
-        return true;
-    else
-        return false;
+    return preg_match('/\A[A-Z]+\Z/', $value);
   }
 
   function is_unique_username($value) {

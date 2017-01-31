@@ -10,10 +10,10 @@
   {
     // Confirm that POST values are present before accessing them.
 
-    $firstname = h(isset($_POST['firstname']) ? $_POST['firstname'] : '');
-    $lastname = h(isset($_POST['lastname']) ? $_POST['lastname'] : '');
-    $email = h(isset($_POST['email']) ? $_POST['email'] : '');
-    $username = h(isset($_POST['username']) ? $_POST['username'] : '');
+    $firstname = isset($_POST['firstname']) ? $_POST['firstname'] : '';
+    $lastname = isset($_POST['lastname']) ? $_POST['lastname'] : '';
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $username = isset($_POST['username']) ? $_POST['username'] : '';
     $created_at = date("Y-m-d H:i:s");
 
     // Perform Validations
@@ -41,10 +41,14 @@
       // Write SQL INSERT statement
     if($good_to_go)
     {
-      $sql = "INSERT INTO users 
-              (first_name, last_name, email, username, created_at) 
-              VALUES 
-              ('$firstname', '$lastname', '$email', '$username', '$created_at')";
+      $sql = "INSERT INTO users ";
+      $sql .= "(first_name, last_name, email, username, created_at) VALUES (";
+      $sql .= "'" . escape($firstname) . "',";
+      $sql .= "'" . escape($lastname) . "',"; 
+      $sql .= "'" . escape($email) . "',";
+      $sql .= "'" . escape($username) . "',";
+      $sql .= "'" . $created_at . "'";
+      $sql .= ");";
 
       // For INSERT statments, $result is just true/false
       $result = db_query($db, $sql);
@@ -115,13 +119,13 @@
   <!-- TODO: HTML form goes here -->
 
   <form action="" method="post">
-    First Name: <input type="text" name="firstname" value="<?php if(isset($firstname)) { echo $firstname; } ?>">
+    First Name: <input type="text" name="firstname" value="<?php echo h($firstname); ?>">
     <br> <br>
-    Last Name: <input type="text" name="lastname" value="<?php if(isset($lastname)) { echo $lastname; } ?>">
+    Last Name: <input type="text" name="lastname" value="<?php echo h($lastname); ?>">
     <br> <br>
-    Email: <input type="text" name="email" value="<?php if(isset($email)) { echo $email; } ?>">
+    Email: <input type="text" name="email" value="<?php echo h($email); ?>">
     <br> <br>
-    Username: <input type="text" name="username" value="<?php if(isset($username)) { echo $username; } ?>">
+    Username: <input type="text" name="username" value="<?php echo h($username); ?>">
     <br> <br>
     <input type="submit" name="submit" value="Submit">
   </form>

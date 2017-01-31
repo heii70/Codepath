@@ -31,12 +31,12 @@ $country = db_fetch_assoc($country_result);
     echo "</table>";
 ?>
     <br />
-    <a href="edit.php?id=<?php echo raw_u($country['id']); ?>">Edit</a><br />
+    <a href="<?php echo h(raw_u("edit.php") . "?id=" . u($country['id'])); ?>">Edit</a><br />
     <hr />
 
     <h2>States</h2>
     <br />
-    <a href="../states/new.php?id=<?php echo raw_u($country['id']); ?>">Add a State</a><br />
+    <a href="<?php echo h("../states/" . raw_u("new.php") . "?id=" . u($country['id'])); ?>">Add a State</a><br />
 
 <?php
     $state_result = find_states_for_country_id($country['id']);
@@ -44,7 +44,7 @@ $country = db_fetch_assoc($country_result);
     echo "<ul id=\"states\">";
     while($state = db_fetch_assoc($state_result)) {
       echo "<li>";
-      echo "<a href=\"../states/show.php?id=" . raw_u($state['id']) . "\">";
+      echo "<a href=\"" . h("../states/" . raw_u("show.php") . "?id=" . u($state['id'])) . "\">";
       echo h($state['name']);
       echo "</a>";
       echo "</li>";

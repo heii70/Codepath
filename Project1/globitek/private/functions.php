@@ -12,6 +12,11 @@
     return rawurlencode($string);
   }
 
+  function escape($string="") {
+    global $db;
+    return mysqli_real_escape_string($db,$string);
+  }
+
   function redirect_to($location) {
     header("Location: " . $location);
     exit;
