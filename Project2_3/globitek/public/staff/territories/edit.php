@@ -2,7 +2,7 @@
 require_once('../../../private/initialize.php');
 
 if(!isset($_GET['id'])) {
-  redirect_to('index.php?id=' . raw_u($territory['state_id']));
+  redirect_to('index.php?id=' . u($territory['state_id']));
 }
 $territories_result = find_territory_by_id($_GET['id']);
 // No loop, only one result
@@ -13,13 +13,13 @@ $territory = db_fetch_assoc($territories_result);
 <?php include(SHARED_PATH . '/header.php'); ?>
 
 <div id="main-content">
-  <a href="../states/show.php?id=<?php echo raw_u($territory['state_id']); ?>">Back to State Details</a><br />
+  <a href="<?php echo h("../states/show.php?id=" . u($territory['state_id'])); ?>">Back to State Details</a><br />
 
   <h1>Edit Territory: <?php echo h($territory['name']); ?></h1>
 
   <?php echo display_errors($errors); ?>
 
-  <form action="edit.php?id=<?php echo raw_u($territory['id']); ?>" method="post">
+  <form action="<?php echo h("edit.php?id=" . u($territory['id'])); ?>" method="post">
     Name:<br />
     <input type="text" name="name" value="<?php echo h($territory['name']); ?>" /><br />
     State ID:<br />

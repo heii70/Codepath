@@ -21,7 +21,7 @@ if(is_post_request())
 
   $result = update_state($state);
   if($result === true) {
-    redirect_to('show.php?id=' . raw_u($state['id']));
+    redirect_to('show.php?id=' . u($state['id']));
   } else {
     $errors = $result;
   }
@@ -32,13 +32,13 @@ if(is_post_request())
 <?php include(SHARED_PATH . '/header.php'); ?>
 
 <div id="main-content">
-  <a href="show.php?id=<?php echo $state['id']; ?>">Back to State Details</a><br />
+  <a href="<?php echo h("show.php?id=" . u($state['id'])); ?>">Back to State Details</a><br />
 
   <h1>Edit State: <?php echo h($state['name']); ?></h1>
 
   <?php echo display_errors($errors); ?>
 
-  <form action="edit.php?id=<?php echo raw_u($state['id']); ?>" method="post">
+  <form action="<?php echo h("edit.php?id=" . u($state['id'])); ?>" method="post">
     Name:<br />
     <input type="text" name="name" value="<?php echo h($state['name']); ?>" /><br />
     Code:<br />

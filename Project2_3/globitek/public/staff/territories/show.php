@@ -2,7 +2,7 @@
 
 <?php
 if(!isset($_GET['id'])) {
-  redirect_to('index.php?id=' . raw_u($territory['state_id']));
+  redirect_to('index.php?id=' . u($territory['state_id']));
 }
 $id = $_GET['id'];
 $territory_result = find_territory_by_id($id);
@@ -18,7 +18,7 @@ $state = db_fetch_assoc($state_result);
 <?php include(SHARED_PATH . '/header.php'); ?>
 
 <div id="main-content">
-  <a href="../states/show.php?id=<?php echo raw_u($territory['state_id']); ?>">Back to State Details</a>
+  <a href="<?php echo h("../states/show.php?id=" . u($territory['state_id'])); ?>">Back to State Details</a>
   <br />
 
   <h1>Territory: <?php echo h($territory['name']); ?></h1>
@@ -42,7 +42,7 @@ $state = db_fetch_assoc($state_result);
     db_free_result($territory_result);
   ?>
   <br />
-  <a href="edit.php?id=<?php echo raw_u($territory['id']); ?>">Edit</a><br />
+  <a href="<?php echo h("edit.php?id=" . u($territory['id'])); ?>">Edit</a><br />
 
 </div>
 

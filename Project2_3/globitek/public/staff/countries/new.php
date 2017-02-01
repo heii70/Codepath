@@ -18,7 +18,7 @@ if(is_post_request())
   $result = insert_country($country);
   if($result === true) {
     $new_id = db_insert_id($db);
-    redirect_to('show.php?id=' . $new_id);
+    redirect_to('show.php?id=' . u($new_id));
   } else {
     $errors = $result;
   }
@@ -38,9 +38,9 @@ if(is_post_request())
 
   <form action="new.php" method="post">
     Name:<br />
-    <input type="text" name="name" value="<?php echo $state['name']; ?>" /><br />
+    <input type="text" name="name" value="<?php echo h($state['name']); ?>" /><br />
     Code:<br />
-    <input type="text" name="code" value="<?php echo $state['code']; ?>" /><br />
+    <input type="text" name="code" value="<?php echo h($state['code']); ?>" /><br />
     <br />
     <input type="submit" name="submit" value="Create"  />
   </form>

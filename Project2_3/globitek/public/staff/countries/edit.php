@@ -20,7 +20,7 @@ if(is_post_request())
 
   $result = update_country($country);
   if($result === true) {
-    redirect_to('show.php?id=' . raw_u($country['id']));
+    redirect_to('show.php?id=' . u($country['id']));
   } else {
     $errors = $result;
   }
@@ -31,13 +31,13 @@ if(is_post_request())
 <?php include(SHARED_PATH . '/header.php'); ?>
 
 <div id="main-content">
-  <a href="show.php?id=<?php echo $country['id']; ?>">Back to Country Details</a><br />
+  <a href="<?php echo h("show.php?id=" . u($country['id'])); ?>">Back to Country Details</a><br />
 
   <h1>Edit Country: <?php echo h($country['name']); ?></h1>
 
   <?php echo display_errors($errors); ?>
 
-  <form action="edit.php?id=<?php echo raw_u($country['id']); ?>" method="post">
+  <form action="<?php echo h("edit.php?id=" . u($country['id'])); ?>" method="post">
     Name:<br />
     <input type="text" name="name" value="<?php echo h($country['name']); ?>" /><br />
     Code:<br />

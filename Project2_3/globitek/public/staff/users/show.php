@@ -37,7 +37,7 @@ $user = db_fetch_assoc($users_result);
     db_free_result($users_result);
   ?>
   <br />
-  <a href="edit.php?id=<?php echo raw_u($user['id']); ?>">Edit</a><br />
+  <a href="<?php echo h("edit.php?id=" . u($user['id'])); ?>">Edit</a><br />
 
 </div>
 

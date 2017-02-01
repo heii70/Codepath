@@ -20,7 +20,7 @@ if(is_post_request())
   $result = insert_state($state);
   if($result === true) {
     $new_id = db_insert_id($db);
-    redirect_to('show.php?id=' . $new_id);
+    redirect_to('show.php?id=' . u($new_id));
   } else {
     $errors = $result;
   }
@@ -32,19 +32,19 @@ if(is_post_request())
 <?php include(SHARED_PATH . '/header.php'); ?>
 
 <div id="main-content">
-  <a href="../countries/show.php?id=<?php echo $_GET['id']; ?>">Back to Country Details</a><br />
+  <a href="<?php echo h("../countries/show.php?id=" . u($_GET['id'])); ?>">Back to Country Details</a><br />
 
   <h1>New State</h1>
 
   <?php echo display_errors($errors); ?>
 
-  <form action="new.php?id=<?php echo $state['country_id']; ?>" method="post">
+  <form action="<?php echo h("new.php?id=" . u($state['country_id'])); ?>" method="post">
     Name:<br />
-    <input type="text" name="name" value="<?php echo $state['name']; ?>" /><br />
+    <input type="text" name="name" value="<?php echo h($state['name']); ?>" /><br />
     Code:<br />
-    <input type="text" name="code" value="<?php echo $state['code']; ?>" /><br />
+    <input type="text" name="code" value="<?php echo h($state['code']); ?>" /><br />
     Country ID:<br />
-    <input type="text" name="country_id" value="<?php echo $_GET['id']; ?>" readonly /><br />
+    <input type="text" name="country_id" value="<?php echo h($_GET['id']); ?>" readonly /><br />
     <br />
     <input type="submit" name="submit" value="Create"  />
   </form>

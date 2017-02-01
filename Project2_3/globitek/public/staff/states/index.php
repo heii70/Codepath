@@ -1,6 +1,10 @@
-<?php require_once('../../../private/initialize.php'); ?>
+<?php require_once('../../../private/initialize.php'); 
 
-<?php $page_title = 'Staff: States'; ?>
+redirect_to("../countries/show.php?id=" . u($_GET['id']));
+
+?>
+
+<!-- <?php /*$page_title = 'Staff: States'; ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 
 <div id="main-content">
@@ -8,7 +12,7 @@
 
   <h1>States</h1>
 
-  <!--<a href="new.php">Add a State</a><br /> -->
+  <a href="new.php">Add a State</a><br />
   <br />
 
   <?php
@@ -26,10 +30,10 @@
       echo "<td>" . h($state['name']) . "</td>";
       echo "<td>" . h($state['code']) . "</td>";
       echo "<td>";
-      echo "<a href=\"show.php?id=" . raw_u($state['id']) . "\">Show</a>";
+      echo "<a href=\"" . h("show.php?id=" . u($state['id'])) . "\">Show</a>";
       echo "</td>";
       echo "<td>";
-      echo "<a href=\"edit.php?id=" . raw_u($state['id']) . "\">Edit</a>";
+      echo "<a href=\"" . h("edit.php?id=" . u($state['id'])) . "\">Edit</a>";
       echo "</td>";
       echo "</tr>";
     } // end while $states
@@ -39,4 +43,4 @@
 
 </div>
 
-<?php include(SHARED_PATH . '/footer.php'); ?>
+<?php include(SHARED_PATH . '/footer.php'); */?> -->

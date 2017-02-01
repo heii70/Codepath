@@ -26,10 +26,10 @@
       echo "<td>" . h($salesperson['first_name']) . "</td>";
       echo "<td>" . h($salesperson['last_name']) . "</td>";
       echo "<td>";
-      echo "<a href=\"show.php?id=" . raw_u($salesperson['id']) . "\">Show</a>";
+      echo "<a href=\"" . h("show.php?id=" . u($salesperson['id'])) . "\">Show</a>";
       echo "</td>";
       echo "<td>";
-      echo "<a href=\"edit.php?id=" . raw_u($salesperson['id']) . "\">Edit</a>";
+      echo "<a href=\"" . h("edit.php?id=" . u($salesperson['id'])) . "\">Edit</a>";
       echo "</td>";
       echo "</tr>";
     } // end while $salesperson

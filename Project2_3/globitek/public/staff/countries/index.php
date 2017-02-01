@@ -26,10 +26,10 @@
       echo "<td>" . h($country['name']) . "</td>";
       echo "<td>" . h($country['code']) . "</td>";
       echo "<td>";
-      echo "<a href=\"show.php?id=" . raw_u($country['id']) . "\">Show</a>";
+      echo "<a href=\"" . h("show.php?id=" . u($country['id'])) . "\">Show</a>";
       echo "</td>";
       echo "<td>";
-      echo "<a href=\"edit.php?id=" . raw_u($country['id']) . "\">Edit</a>";
+      echo "<a href=\"" . h("edit.php?id=" . u($country['id'])) . "\">Edit</a>";
       echo "</td>";
       echo "</tr>";
     } // end while $countries

@@ -28,13 +28,13 @@
       echo "<td>" . h($user['last_name']) . "</td>";
       echo "<td>" . h($user['username']) . "</td>";
       echo "<td>";
-      echo "<a href=\"show.php?id=" . raw_u($user['id']) . "\">Show</a>";
+      echo "<a href=\"" . h("show.php?id=" . u($user['id'])) . "\">Show</a>";
       echo "</td>";
       echo "<td>";
-      echo "<a href=\"edit.php?id=" . raw_u($user['id']) . "\">Edit</a>";
+      echo "<a href=\"" . h("edit.php?id=" . u($user['id'])) . "\">Edit</a>";
       echo "</td>";
       echo "<td>";
-      echo "<a href=\"delete.php?id=" . raw_u($user['id']) . "\">Delete</a>";
+      echo "<a href=\"" . h("delete.php?id=" . u($user['id'])) . "\">Delete</a>";
       echo "</td>";
       echo "</tr>";
     } // end while $user
