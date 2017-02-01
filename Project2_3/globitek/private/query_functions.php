@@ -444,7 +444,7 @@
     $sql .= "first_name='" . escape($salesperson['first_name']) . "', ";
     $sql .= "last_name='" . escape($salesperson['last_name']) . "', ";
     $sql .= "email='" . escape($salesperson['email']) . "', ";
-    $sql .= "phone='" . escaep($salesperson['phone']) . "' ";
+    $sql .= "phone='" . escape($salesperson['phone']) . "' ";
     $sql .= "WHERE id='" . escape($salesperson['id']) . "' ";
     $sql .= "LIMIT 1;";
 
