@@ -62,4 +62,61 @@
       return true;
   }
 
+  function is_unique_email($value) {
+  	$sql = "SELECT * FROM users WHERE ";
+    $sql .= "email='" . escape($value) . "'";
+    global $db; // Uses connection $db set in the initialization file
+
+    $result = db_query($db, $sql); // Query result
+    $count = db_num_rows($result); // Number of username matches
+
+    if($count > 0)
+      return false;
+    else
+      return true;
+  }
+
+  function is_unique_state($value) {
+  	$sql = "SELECT * FROM states WHERE ";
+    $sql .= "name='" . escape($value) . "'";
+    global $db; // Uses connection $db set in the initialization file
+
+    $result = db_query($db, $sql); // Query result
+    $count = db_num_rows($result); // Number of username matches
+
+    if($count > 0)
+      return false;
+    else
+      return true;
+  }
+
+  function is_unique_territory($value) {
+  	$sql = "SELECT * FROM territories WHERE ";
+    $sql .= "name='" . escape($value) . "'";
+    global $db; // Uses connection $db set in the initialization file
+
+    $result = db_query($db, $sql); // Query result
+    $count = db_num_rows($result); // Number of username matches
+
+    if($count > 0)
+      return false;
+    else
+      return true;
+  }
+
+  function is_unique_country($value) {
+  	$sql = "SELECT * FROM countries WHERE ";
+    $sql .= "name='" . escape($value) . "'";
+    global $db; // Uses connection $db set in the initialization file
+
+    $result = db_query($db, $sql); // Query result
+    $count = db_num_rows($result); // Number of username matches
+
+    if($count > 0)
+      return false;
+    else
+      return true;
+  }
+
+
 ?>

@@ -47,6 +47,8 @@
       $errors[] = "Name must be between 2 and 255 characters.";
     } elseif (!has_valid_name_format($country['name'])) {
       $errors[] = "Name format is invalid.";
+    } elseif (!is_unique_country($country['name'])) {
+      $errors[] = "Country already exists.";
     }
 
     if (is_blank($country['code'])) {
@@ -134,6 +136,8 @@
       $errors[] = "Name must be between 2 and 255 characters.";
     } elseif (!has_valid_name_format($state['name'])) {
       $errors[] = "Name format is invalid.";
+    } elseif (!is_unique_state($state['name'])) {
+      $errors[] = "State already exists.";
     }
 
     if (is_blank($state['code'])) {
@@ -253,6 +257,8 @@
       $errors[] = "Name must be between 2 and 255 characters.";
     } elseif (!has_valid_name_format($territory['name'])) {
       $errors[] = "Name format is invalid.";
+    } elseif (!is_unique_territory($territory['name'])) {
+      $errors[] = "Territory already exists.";
     }
 
     if (is_blank($territory['position'])) {
@@ -262,7 +268,6 @@
     } elseif (!is_numeric($territory['position']) || $territory['position'] < 0) {
       $errors[] = "Position format is invalid.";
     }
-
     return $errors;
   }
 
@@ -393,8 +398,10 @@
       $errors[] = "Email cannot be blank.";
     } elseif (!has_valid_email_format($salesperson['email'])) {
       $errors[] = "Email must be a valid format.";
+    } elseif (!is_unique_email($salesperson['email'])) {
+      $errors[] = "Email is already used.";
     }
-
+  
     return $errors;
   }
 
@@ -517,6 +524,8 @@
       $errors[] = "Email cannot be blank.";
     } elseif (!has_valid_email_format($user['email'])) {
       $errors[] = "Email must be a valid format.";
+    } elseif (!is_unique_email($user['email'])) {
+      $errors[] = "Email is already used.";
     }
 
     if (is_blank($user['username'])) {
@@ -528,7 +537,6 @@
     } elseif(!is_unique_username($user['username'])) {
       $errors[] = "Username is already used.";
     }
-
     return $errors;
   }
 

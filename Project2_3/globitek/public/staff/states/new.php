@@ -38,7 +38,7 @@ if(is_post_request())
 
   <?php echo display_errors($errors); ?>
 
-  <form action="<?php echo h("new.php?id=" . u($state['country_id'])); ?>" method="post">
+  <form action="<?php echo h("new.php?id=" . u($_GET['id'])); ?>" method="post">
     Name:<br />
     <input type="text" name="name" value="<?php echo h($state['name']); ?>" /><br />
     Code:<br />
