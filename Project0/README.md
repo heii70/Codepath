@@ -4,7 +4,7 @@ TipCalc is a tip calculator PHP page.
 
 Submitted by: William Gao
 
-Time spent: 72 hours spent in total
+Time spent: 15 hours spent in total
 
 ## User Stories
 
