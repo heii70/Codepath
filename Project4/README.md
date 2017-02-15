@@ -52,24 +52,24 @@ The following advanced user stories are optional:
   * [x]  Identify the security principal not being followed.
   * [x]  Write a short description of how the code could be modified to be more secure.
 
-* [ ] Bonus Objective 2: Add CSRF protections to all forms in the staff directory
+* [x] Bonus Objective 2: Add CSRF protections to all forms in the staff directory
 
-* [ ]  Bonus Objective 3: CSRF tokens only valid for 10 minutes.
+* [x]  Bonus Objective 3: CSRF tokens only valid for 10 minutes.
 
-* [ ]  Bonus Objective 4: Sessions are valid only if user-agent string matches previous value.
+* [x]  Bonus Objective 4: Sessions are valid only if user-agent string matches previous value.
 
-* [ ]  Advanced Objective: Set/Get Signed-Encrypted Cookie
-  * [ ]  Create "public/set\_secret\_cookie.php".
-  * [ ]  Create "public/get\_secret\_cookie.php".
-  * [ ]  Encrypt and sign cookie before storing.
-  * [ ]  Verify cookie is signed correctly or show error message.
-  * [ ]  Decrypt cookie.
+* [x]  Advanced Objective: Set/Get Signed-Encrypted Cookie
+  * [x]  Create "public/set\_secret\_cookie.php".
+  * [x]  Create "public/get\_secret\_cookie.php".
+  * [x]  Encrypt and sign cookie before storing.
+  * [x]  Verify cookie is signed correctly or show error message.
+  * [x]  Decrypt cookie.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/QMpSTyG.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -85,7 +85,7 @@ I had a major issue where the session id would be lost after the redirect. After
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2017] [William Gao]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

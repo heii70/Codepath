@@ -19,12 +19,18 @@ if(is_post_request()) {
   if(isset($_POST['phone'])) { $salesperson['phone'] = $_POST['phone']; }
   if(isset($_POST['email'])) { $salesperson['email'] = $_POST['email']; }
 
-
-  $result = update_salesperson($salesperson);
-  if($result === true) {
-    redirect_to('show.php?id=' . $salesperson['id']);
-  } else {
-    $errors = $result;
+  if(csrf_token_is_valid())
+  {
+    $result = update_salesperson($salesperson);
+    if($result === true) {
+      redirect_to('show.php?id=' . $salesperson['id']);
+    } else {
+      $errors = $result;
+    }
+  }
+  else
+  {
+    $errors[] = "Error: invalid request.";
   }
 }
 ?>
@@ -47,6 +53,7 @@ if(is_post_request()) {
     <input type="text" name="phone" value="<?php echo h($salesperson['phone']); ?>" /><br />
     Email:<br />
     <input type="text" name="email" value="<?php echo h($salesperson['email']); ?>" /><br />
+    <?php echo csrf_token_tag(); ?>
     <br />
     <input type="submit" name="submit" value="Update"  />
   </form>

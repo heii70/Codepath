@@ -17,11 +17,18 @@ if(is_post_request()) {
   if(isset($_POST['name'])) { $territory['name'] = $_POST['name']; }
   if(isset($_POST['position'])) { $territory['position'] = $_POST['position']; }
 
-  $result = update_territory($territory);
-  if($result === true) {
-    redirect_to('show.php?id=' . $territory['id']);
-  } else {
-    $errors = $result;
+  if(csrf_token_is_valid())
+  {
+    $result = update_territory($territory);
+    if($result === true) {
+      redirect_to('show.php?id=' . $territory['id']);
+    } else {
+      $errors = $result;
+    }
+  }
+  else
+  {
+    $errors[] = "Error: invalid request.";
   }
 }
 ?>
@@ -40,6 +47,7 @@ if(is_post_request()) {
     <input type="text" name="name" value="<?php echo h($territory['name']); ?>" /><br />
     Position:<br />
     <input type="text" name="position" value="<?php echo h($territory['position']); ?>" /><br />
+    <?php echo csrf_token_tag(); ?>
     <br />
     <input type="submit" name="submit" value="Update"  />
   </form>

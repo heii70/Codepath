@@ -13,8 +13,6 @@ $state = array(
   'country_id' => $_GET['id']
 );
 
-$_POST['csrf_token'] = $_SESSION['csrf_token'];
-
 if(is_post_request()) {
 
   // Confirm that values are present before accessing them.

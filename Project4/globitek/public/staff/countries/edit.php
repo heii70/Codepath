@@ -17,11 +17,18 @@ if(is_post_request()) {
   if(isset($_POST['name'])) { $country['name'] = $_POST['name']; }
   if(isset($_POST['code'])) { $country['code'] = $_POST['code']; }
 
-  $result = update_country($country);
-  if($result === true) {
-    redirect_to('show.php?id=' . $country['id']);
-  } else {
-    $errors = $result;
+  if(csrf_token_is_valid())
+  {
+    $result = update_country($country);
+    if($result === true) {
+      redirect_to('show.php?id=' . $country['id']);
+    } else {
+      $errors = $result;
+    }
+  }
+  else
+  {
+    $errors[] = "Error: invalid request.";
   }
 }
 ?>
@@ -40,6 +47,7 @@ if(is_post_request()) {
     <input type="text" name="name" value="<?php echo h($country['name']); ?>" /><br />
     Code:<br />
     <input type="text" name="code" value="<?php echo h($country['code']); ?>" /><br />
+    <?php echo csrf_token_tag(); ?>
     <br />
     <input type="submit" name="submit" value="Update"  />
   </form>

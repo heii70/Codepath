@@ -40,7 +40,7 @@ Keeping track of the input values after submitting the form took some time to fi
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2017] [William Gao]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

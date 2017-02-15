@@ -56,4 +56,21 @@
     return true;  // username is not used by anyone
   }
 
+  function signing_checksum($string) {
+    $salt = "qi02BcXzp639"; // makes process hard to guess
+    return hash('sha1', $string . $salt);
+  }
+
+  function sign_string($string) {
+    return $string . '--' . signing_checksum($string);
+  }
+
+  function signed_string_is_valid($signed_string) {
+    $array = explode('--', $signed_string);
+    // if not 2 parts it is malformed or not signed
+    if(count($array) != 2) { return false; }
+
+    $new_checksum = signing_checksum($array[0]);
+    return ($new_checksum === $array[1]);
+  }
 ?>

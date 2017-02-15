@@ -32,7 +32,7 @@
   // by comparing it to the time a token was last generated.
   function csrf_token_is_recent() {
     // TODO add code to determine if csrf token is recent
-    $recent_limit = 60 * 60 * 24 * 1; // 1 day
+    $recent_limit = 60 * 10; // 10 mins
     if(!isset($_SESSION['csrf_token_time'])) { return false; }
     return (($_SESSION['csrf_token_time'] + $recent_limit) >= time());
   }
