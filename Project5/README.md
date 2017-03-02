@@ -90,6 +90,8 @@ wz7Lj7qIhpOGFOIu5DPcWvMc/sZlkQhudhagrarPc2Hq989bsd/2DzBIIugwtKxaLy1DZ9ZDQohlEnm5
 
 Describe any challenges encountered while building the app.
 
+I had some issue with managing keys because it got confusing at times with encryption and decryption procedures. Signatures were a little confusing at first because I didn't understand the difference between encrypting and signing. 
+
 ## License
 
     Copyright [2017] [William Gao]
