@@ -2,12 +2,7 @@
 
 // Symmetric Encryption
 
-// Cipher method to use for symmetric encryption
-$array = openssl_get_cipher_methods();
-
-const CIPHER_METHOD = 'AES-256-CBC';
-
-function key_encrypt($string, $key, $cipher_method=CIPHER_METHOD) {
+function key_encrypt($string, $key, $cipher_method) {
 
   $key = str_pad($key, 32, '*');
   $iv_length = openssl_cipher_iv_length($cipher_method);
@@ -22,7 +17,7 @@ function key_encrypt($string, $key, $cipher_method=CIPHER_METHOD) {
   return base64_encode($message);
 }
 
-function key_decrypt($string, $key, $cipher_method=CIPHER_METHOD) {
+function key_decrypt($string, $key, $cipher_method) {
 
   $key = str_pad($key, 32, '*');
   $iv_with_ciphertext = base64_decode($string);
@@ -99,4 +94,14 @@ function verify_signature($data, $signature, $public_key) {
   return $result;
 }
 
+
+// Checksum 
+
+function generate_checksum($string, $hash_method) {
+  return hash($hash_method,$string);
+}
+
+function verify_checksum($string, $checksum, $hash_method) {
+  return ($checksum == hash($hash_method, $string));
+}
 ?>

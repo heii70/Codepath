@@ -65,7 +65,7 @@
         </div>
       </form>
     
-      <div class="result"><?php echo h($result_signature); ?></div>
+      <div class="result"><?php echo h($signature); ?></div>
       <div style="clear:both;"></div>
     </div>
     
@@ -84,7 +84,7 @@
           <textarea name="signature"><?php echo h($signature); ?></textarea>
         </div>
         <div>
-          <label for="public_key">Public Key</label>
+        <label for="public_key">Public Key</label>
           <textarea name="public_key"><?php echo h($public_key); ?></textarea>
         </div>
         <div>
