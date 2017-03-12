@@ -77,9 +77,11 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Describe any challenges encountered while building the app.
 
+The general tasks weren't too difficult but the bonus gave me some difficulty. I had to add a third parameter to the user validation function so the function could handle the slight difference that was needed for updating. 
+
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2017] [William Gao]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
