@@ -20,7 +20,8 @@ if(is_post_request() && request_is_same_domain()) {
   if(isset($_POST['last_name'])) { $user['last_name'] = $_POST['last_name']; }
   if(isset($_POST['username'])) { $user['username'] = $_POST['username']; }
   if(isset($_POST['email'])) { $user['email'] = $_POST['email']; }
-  if(isset($_POST['password'])) { $user['password'] = $_POST['password']; }
+  if(isset($_POST['ppassword'])) { $user['ppassword'] = $_POST['ppassword']; }
+  if(isset($_POST['newpassword'])) { $user['newpassword'] = $_POST['newpassword']; }
   if(isset($_POST['cpassword'])) { $user['cpassword'] = $_POST['cpassword']; }
 
   $result = update_user($user);
@@ -54,8 +55,10 @@ if(is_post_request() && request_is_same_domain()) {
     <input type="text" name="username" value="<?php echo h($user['username']); ?>" /><br />
     Email:<br />
     <input type="text" name="email" value="<?php echo h($user['email']); ?>" /><br />
+    Previous Password:<br />
+    <input type="password" name="ppassword" value="" /><br />
     Password:<br />
-    <input type="password" name="password" value="" /><br />
+    <input type="password" name="newpassword" value="" /><br />
     Confirm Password:<br />
     <input type="password" name="cpassword" value="" /><br />
     <br />

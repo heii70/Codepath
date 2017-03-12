@@ -488,7 +488,7 @@
     return $users_result;
   }
 
-  function validate_user($user, $errors=array()) {
+  function validate_user($user, $statement='', $errors=array()) {
     if (is_blank($user['first_name'])) {
       $errors[] = "First name cannot be blank.";
     } elseif (!has_length($user['first_name'], array('min' => 2, 'max' => 255))) {
@@ -517,12 +517,21 @@
       $errors[] = "Username not allowed. Try another.";
     }
 
-    return $errors;
-  }
+    if($statement == 'update')
+    {
+      if(is_blank($user['newpassword']) && is_blank($user['cpassword']))
+        return $errors;
 
-  function validate_password($user, $errors=array()) {
+      if(!password_verify($user['ppassword'], $user['password'])) {
+          $errors[] = "Previous password is incorrect.";
+          return $errors;
+      }   
+
+      $user['password'] = $user['newpassword'];
+    }
+
     if (!is_valid_password($user['password'])) {
-      $errors[] = "Password is invalid.";
+        $errors[] = "Password is invalid.";
     } elseif ($user['password'] != $user['cpassword']) {
       $errors[] = "Password is not the same.";
     }
@@ -534,7 +543,7 @@
   function insert_user($user) {
     global $db;
 
-    $errors = array_merge(validate_user($user), validate_password($user));
+    $errors = validate_user($user);
 
     if (!empty($errors)) {
       return $errors;
@@ -571,24 +580,20 @@
   function update_user($user) {
     global $db;
 
-    $errors = validate_user($user);
-
-    if(!is_blank($user['password']) || !is_blank($user['cpassword']))
-      $errors = array_merge($errors, validate_password($user));
-      
+    $errors = validate_user($user,'update');
+    
     if (!empty($errors)) {
       return $errors;
     }
 
-    if(!is_blank($user['password']))
-      $user['password'] = password_hash($user['password'], PASSWORD_BCRYPT);
+    if(!is_blank($user['newpassword']))
+      $user['password'] = password_hash($user['newpassword'], PASSWORD_BCRYPT);
 
     $sql = "UPDATE users SET ";
     $sql .= "first_name='" . db_escape($db, $user['first_name']) . "', ";
     $sql .= "last_name='" . db_escape($db, $user['last_name']) . "', ";
     $sql .= "email='" . db_escape($db, $user['email']) . "', ";
-    if(!is_blank($user['password']))
-      $sql .= "password='" . db_escape($db, $user['password']) . "', ";
+    $sql .= "password='" . db_escape($db, $user['password']) . "', ";
     $sql .= "username='" . db_escape($db, $user['username']) . "' ";
     $sql .= "WHERE id='" . db_escape($db, $user['id']) . "' ";
     $sql .= "LIMIT 1;";
