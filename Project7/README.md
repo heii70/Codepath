@@ -16,7 +16,7 @@ Time spent: **15** hours spent in total
   ```
   TEST!!![caption width="1" caption='<a href="' ">]</a><a href="http://onMouseOver='alert(1)'">Click me</a>>
   ```
-  - [x] Affected source code: wp-includes/shortcodes.php
+  - [x] Affected source code: [wp-includes/shortcodes.php]
     - [Link 1](https://wpvulndb.com/vulnerabilities/8186)
 2. (Required) WordPress  4.0-4.7.2 - Authenticated Stored Cross-Site Scripting (XSS) in YouTube URL Embeds
   - [x] Summary: In WordPress before 4.7.3 (wp-includes/embed.php), there is authenticated Cross-Site Scripting (XSS) in YouTube URL Embeds.
@@ -24,8 +24,11 @@ Time spent: **15** hours spent in total
     - Tested in version: 4.2.2
     - Fixed in version: 4.7.2
   - [x] GIF Walkthrough: <img src='http://i.imgur.com/6NXhmwc.gif' />
-  - [x] Steps to recreate - Place in the body of a new page or post: [embed src='https://youtube.com/watch?v=abc<svg onload=alert(1)>'][/embed]
-  - [x] Affected source code: wp-includes/embed.php
+  - [x] Steps to recreate - Place in the body of a new page or post: 
+  ```
+  [embed src='https://youtube.com/watch?v=abc<svg onload=alert(1)>'][/embed]
+  ```
+  - [x] Affected source code: [wp-includes/embed.php]
     - [Link 1](https://blog.sucuri.net/2017/03/stored-xss-in-wordpress-core.html)
 3. (Required) WordPress 2.5-4.6 - Authenticated Stored Cross-Site Scripting via Image Filename
   - [x] Summary: Cross-site scripting (XSS) vulnerability in the media_handle_upload function in wp-admin/includes/media.php in WordPress before 4.6.1 might allow remote attackers to inject arbitrary web script or HTML by tricking an administrator into uploading an image file that has a crafted filename.
@@ -33,8 +36,11 @@ Time spent: **15** hours spent in total
     - Tested in version: 4.2.2
     - Fixed in version: 4.4.5
   - [x] GIF Walkthrough: <img src='http://i.imgur.com/8dotowf.gif' />
-  - [x] Steps to recreate - Create a new page or post with the following title: testing<img src=a onerror=alert("XSS")>.jpg
-  - [x] Affected source code: wp-admin/includes/media.php
+  - [x] Steps to recreate - Create a new page or post with the following title: 
+  ```
+  testing<img src=a onerror=alert("XSS")>.jpg
+  ```
+  - [x] Affected source code: [wp-admin/includes/media.php]
     - [Link 1](https://sumofpwn.nl/advisory/2016/persistent_cross_site_scripting_vulnerability_in_wordpress_due_to_unsafe_processing_of_file_names.html) 
 
 ## Assets
