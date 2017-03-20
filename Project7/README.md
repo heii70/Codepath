@@ -13,9 +13,9 @@ Time spent: **15** hours spent in total
     - Fixed in version: 4.2.5
   - [x] GIF Walkthrough: <img src='http://i.imgur.com/XMDQ2cK.gif' />
   - [x] Steps to recreate - Place in the body of a new page or post: 
-  ...
+  ```
   TEST!!![caption width="1" caption='<a href="' ">]</a><a href="http://onMouseOver='alert(1)'">Click me</a>>
-  ...
+  ```
   - [x] Affected source code: wp-includes/shortcodes.php
     - [Link 1](https://wpvulndb.com/vulnerabilities/8186)
 2. (Required) WordPress  4.0-4.7.2 - Authenticated Stored Cross-Site Scripting (XSS) in YouTube URL Embeds
