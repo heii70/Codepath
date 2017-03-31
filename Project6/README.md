@@ -40,7 +40,7 @@ The following **required** functionality is completed:
 The following advanced user stories are optional:
 
 * Bonus Objective 1\.
-  * [ ]  Identify the subtle Username Enumeration weakness. Include a short description of how the code could be modified to be more secure below:
+  * [x]  Identify the subtle Username Enumeration weakness. Include a short description of how the code could be modified to be more secure below:
 
 * Bonus Objective 2\.
   * [x]  User password validations only run when the password is not blank.
@@ -74,6 +74,10 @@ Here's a walkthrough of implemented user stories:
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
+
+Bonus Task 1:
+
+The error output messages were slightly different for whether if the username or password was incorrect; the error messages were changed to be the same to make it ambiguous.
 
 Describe any challenges encountered while building the app.
 
