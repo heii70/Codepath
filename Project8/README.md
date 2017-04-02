@@ -41,7 +41,7 @@ Vulnerability #1: IDOR - Hidden salespeople ids are accessible
 
 GIF Walkthrough: <img src='http://i.imgur.com/lnQoU8t.gif' />
 
-Vulnerability #2: CSFR - CSFR tokens are not used in the edit pages
+Vulnerability #2: CSRF - CSRF tokens are not used in the edit pages
 
 GIF Walkthrough: <img src='http://i.imgur.com/qoO6YKA.gif' />
 
