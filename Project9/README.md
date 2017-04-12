@@ -18,11 +18,11 @@ Time spent: **20** hours spent in total
 - [x] An example of the data captured by the honeypot (example: IDS logs including IP, request paths, alerts triggered)
 - [x] A screen-cap of the attack being conducted
     
-<h1>Overview Summary:</h1>
+<b>Overview Summary:</b>
 
 This demonstration utilizes Vagrant and the tools provided by the Modern Honey Network to set up a honeypot that detects attacks and records attackers' credentials and attempted exploits. MHN comes packaged with various intrusion detection software such as Snort, Kippo, Conpot, and Dionaea which consist of sensors, logs, and other tools. It also includes a server for centralized management. Vagrant is used to create virtual machines contained in Vagrant boxes to run this software. In this demonstration, two VMs are used: the admin console server for managing honeypots and the honeypot server that will be used as the target. A third VM can be created to play the role of attacker but this isn't necessary since the admin server can be used to play a double agent role. The services of Dionaea are used to set up a honeypot that detects packet sniffing, port scanning, and other types of intrusions. The admin server provides deployment commands and script to set up the honeypot.
 
-<h1>Attack Summary:</h1>
+<b>Attack Summary:</b>
 
 In this demonstration, the target is atatacked with nmap which will attempt to obtain port, host, and service information. Instead of outputing information, the terminal stalls from the endpoint of the attacker. The honeypot records the attacker's information and attempted targets, which can be view from the admin server logs. Specifically, the honeypot recorded the attackers' IP address, attempted target ports, time, and attack protocal. 
 
