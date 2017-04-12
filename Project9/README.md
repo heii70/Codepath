@@ -15,8 +15,8 @@ Time spent: **20** hours spent in total
 ### Required: Demonstration
 
 - [x] A basic writeup of the attack (what offensive tools were used, what specifically was detected by the honeypot)
-- [ ] An example of the data captured by the honeypot (example: IDS logs including IP, request paths, alerts triggered)
-- [ ] A screen-cap of the attack being conducted
+- [x] An example of the data captured by the honeypot (example: IDS logs including IP, request paths, alerts triggered)
+- [x] A screen-cap of the attack being conducted
     
 Overview Summary:
 
@@ -25,3 +25,6 @@ This demonstration utilizes Vagrant and the tools provided by the Modern Honey N
 Attack Summary:
 
 In this demonstration, the target is atatacked with nmap which will attempt to obtain port, host, and service information. Instead of outputing information, the terminal stalls from the endpoint of the attacker. The honeypot records the attacker's information and attempted targets, which can be view from the admin server logs. Specifically, the honeypot recorded the attackers' IP address, attempted target ports, time, and attack protocal. 
+
+GIF Walkthrough: <img scr="http://i.imgur.com/SmF6sIe.gif">
+
