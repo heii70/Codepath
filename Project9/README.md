@@ -1,4 +1,4 @@
-# Project 10 - Honeypot
+# Project 9 - Honeypot
 
 Time spent: **20** hours spent in total
 
