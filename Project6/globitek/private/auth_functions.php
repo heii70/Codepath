@@ -6,13 +6,13 @@
     session_regenerate_id();
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['last_login'] = time();
-    $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+    $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT']; 
     return true;
   }
 
   // A one-step function to destroy the current session
   function destroy_current_session() {
-    // TODO destroy the session file completely
+    session_destroy();
   }
 
   // Performs all actions necessary to log out a user
@@ -41,7 +41,7 @@
   // Inspects the session to see if it should be considered valid.
   function session_is_valid() {
     if(!last_login_is_recent()) { return false; }
-    if(!user_agent_matches_session()) { return false; }
+    if(!user_agent_matches_session()) { return false; } // Prevents Session Hijacking
     return true;
   }
 
