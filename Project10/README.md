@@ -19,8 +19,10 @@ There are two major vulnerabilities which allows this exploit to work. The first
 
 The host IP address is first attacked with nmap to scan for open ports; a MySQL database on port 3306 is detected. Metasploit is then used to search for MySQL vulnerabilities; the login vulnerability is used. The target host, port, username, and password list is configured and the exploit is executed. The password associated with the username is found, which is then used to login to the database.
 
+Host Logon Permissions Table:
+
+<img src="http://i.imgur.com/OXameKL.jpg">
+
 GIF Walkthrough:
 
 <img src="http://i.imgur.com/07KX4Gd.gif">
-
-http://imgur.com/a/jSgUi
