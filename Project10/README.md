@@ -1,6 +1,6 @@
 # Project 10 - Fortress Globitek
 
-Time spent: **X** hours spent in total
+Time spent: **15** hours spent in total
 
 > Objective: Create an intentionally vulnerable version of the Globitek application with a secret that can be stolen.
 
@@ -25,4 +25,4 @@ Host Logon Permissions Table:
 
 GIF Walkthrough:
 
-<img src="http://i.imgur.com/07KX4Gd.gif">
+<img src="http://i.imgur.com/2LvIxG6.gif">
